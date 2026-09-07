@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Layanan Digital Kecamatan Sumberbaru</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Georgia, "Times New Roman", serif;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(12, 53, 91, 0.96),
+                    rgba(31, 91, 135, 0.92)
+                ),
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(255,255,255,.10),
+                    transparent 30%
+                );
+            color: white;
+        }
+
+        /* Area website */
+        .page {
+            width: 100%;
+            max-width: 840px;
+            min-height: 100vh;
+            margin: auto;
+            padding: 20px 30px 50px;
+
+            background:
+                linear-gradient(
+                    rgba(3, 35, 66, .83),
+                    rgba(4, 40, 73, .90)
+                ),
+                repeating-linear-gradient(
+                    45deg,
+                    rgba(255,255,255,.025) 0px,
+                    rgba(255,255,255,.025) 2px,
+                    transparent 2px,
+                    transparent 8px
+                );
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            position: relative;
+        }
+
+        .logo {
+            width: 105px;
+            height: 105px;
+            margin: 0 auto 12px;
+
+            border-radius: 50%;
+            background: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            box-shadow: 0 5px 18px rgba(0,0,0,.25);
+            overflow: hidden;
+        }
+
+        .logo img {
+            width: 82%;
+            height: 82%;
+            object-fit: contain;
+        }
+
+        /* Logo sementara jika gambar belum tersedia */
+        .logo-placeholder {
+            color: #15548a;
+            font-size: 42px;
+            font-weight: bold;
+        }
+
+        .share {
+            position: absolute;
+            right: 0;
+            top: 5px;
+
+            width: 52px;
+            height: 52px;
+
+            border: none;
+            border-radius: 50%;
+
+            background: white;
+            color: #172040;
+
+            font-size: 24px;
+            cursor: pointer;
+
+            transition: .25s;
+        }
+
+        .share:hover {
+            transform: scale(1.08);
+        }
+
+        .title {
+            font-size: 35px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            margin-top: 5px;
+        }
+
+        .subtitle {
+            margin-top: 5px;
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .tagline {
+            margin-top: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 1.5;
+        }
+
+        .line {
+            width: 90%;
+            height: 1px;
+            background: rgba(255,255,255,.65);
+            margin: 25px auto;
+        }
+
+        /* Section */
+        .section-title {
+            color: #ffb52d;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        /* Tombol */
+        .service {
+            width: 92%;
+            min-height: 78px;
+            margin: 0 auto 25px;
+
+            display: flex;
+            align-items: center;
+
+            padding: 12px 18px;
+
+            background: #191744;
+            border-radius: 40px;
+
+            text-decoration: none;
+            color: white;
+
+            transition:
+                transform .25s,
+                background .25s,
+                box-shadow .25s;
+        }
+
+        .service:hover {
+            transform: translateY(-3px);
+            background: #24205b;
+            box-shadow: 0 8px 20px rgba(0,0,0,.25);
+        }
+
+        .icon {
+            width: 58px;
+            height: 58px;
+            min-width: 58px;
+
+            border-radius: 50%;
+
+            background: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-right: 18px;
+
+            font-size: 27px;
+        }
+
+        .service-text {
+            font-size: 19px;
+            font-weight: bold;
+            line-height: 1.35;
+        }
+
+        /* Warna ikon */
+        .icon-blue {
+            color: #1976d2;
+        }
+
+        .icon-green {
+            color: #159447;
+        }
+
+        .icon-orange {
+            color: #e98b13;
+        }
+
+        .icon-red {
+            color: #d53b3b;
+        }
+
+        .icon-purple {
+            color: #7446d8;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 35px;
+
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+
+            color: rgba(255,255,255,.75);
+            line-height: 1.6;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+
+            .page {
+                padding: 18px 15px 40px;
+            }
+
+            .logo {
+                width: 90px;
+                height: 90px;
+            }
+
+            .share {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+
+            .title {
+                font-size: 27px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+
+            .tagline {
+                font-size: 15px;
+            }
+
+            .section-title {
+                font-size: 23px;
+            }
+
+            .service {
+                width: 96%;
+                min-height: 72px;
+                border-radius: 35px;
+            }
+
+            .icon {
+                width: 50px;
+                height: 50px;
+                min-width: 50px;
+                font-size: 23px;
+                margin-right: 13px;
+            }
+
+            .service-text {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <!--
+            GANTI logo-placeholder dengan gambar logo kecamatan
+            jika sudah mempunyai file logo.
+        -->
+
+        <div class="logo">
+            <div class="logo-placeholder">SB</div>
+        </div>
+
+        <button class="share" onclick="sharePage()" title="Bagikan">
+            ↗
+        </button>
+
+        <h1 class="title">
+            LAYANAN DIGITAL
+        </h1>
+
+        <h2 class="subtitle">
+            KANTOR KECAMATAN SUMBERBARU
+        </h2>
+
+        <p class="tagline">
+            "KAMI SIAP MELAYANI MASYARAKAT"
+        </p>
+
+    </header>
+
+
+    <div class="line"></div>
+
+
+    <!-- LAYANAN SURAT -->
+    <h2 class="section-title">
+        PERMOHONAN SURAT
+    </h2>
+
+    <a
+        class="service"
+        href="https://forms.gle/LugN51kQqczdp5j76"
+        target="_blank"
+    >
+        <div class="icon icon-blue">
+            📄
+        </div>
+
+        <div class="service-text">
+            Permohonan Surat Keterangan
+        </div>
+    </a>
+
+
+    <div class="line"></div>
+
+
+    <!-- PENGADUAN -->
+    <h2 class="section-title">
+        PENGADUAN MASYARAKAT
+    </h2>
+
+    <a
+        class="service"
+        href="https://forms.gle/5btsjkamndFRog6W8"
+        target="_blank"
+    >
+        <div class="icon icon-red">
+            📢
+        </div>
+
+        <div class="service-text">
+            Form Pengaduan Masyarakat
+        </div>
+    </a>
+
+
+    <div class="line"></div>
+
+
+    <!-- TAMU -->
+    <h2 class="section-title">
+        PENDAFTARAN TAMU
+    </h2>
+
+    <a
+        class="service"
+        href="https://forms.gle/p9CwDuCVLs6p1vav5"
+        target="_blank"
+    >
+        <div class="icon icon-green">
+            👤
+        </div>
+
+        <div class="service-text">
+            Pendaftaran Tamu Kantor
+        </div>
+    </a>
+
+
+    <div class="line"></div>
+
+
+    <!-- LOKASI -->
+    <h2 class="section-title">
+        LOKASI KANTOR
+    </h2>
+
+    <a
+        class="service"
+        href="https://maps.app.goo.gl/LxWkqHFL9LWdifeE7"
+        target="_blank"
+    >
+        <div class="icon icon-orange">
+            📍
+        </div>
+
+        <div class="service-text">
+            Lihat Lokasi Kantor Kecamatan Sumberbaru
+        </div>
+    </a>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>
+            Portal Layanan Digital
+        </p>
+
+        <p>
+            Kantor Kecamatan Sumberbaru
+        </p>
+
+        <p>
+            © 2026 Kecamatan Sumberbaru
+        </p>
+    </footer>
+
+</div>
+
+
+<script>
+
+function sharePage() {
+
+    if (navigator.share) {
+
+        navigator.share({
+            title: "Layanan Digital Kecamatan Sumberbaru",
+            text: "Portal layanan digital Kantor Kecamatan Sumberbaru",
+            url: window.location.href
+        });
+
+    } else {
+
+        navigator.clipboard.writeText(window.location.href);
+
+        alert("Link website berhasil disalin!");
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
